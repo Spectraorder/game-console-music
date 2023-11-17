@@ -1,12 +1,7 @@
-/* Reset some default styles for better consistency across browsers */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -21,15 +16,14 @@ main {
     margin: 20px auto;
 }
 
-p {
-    margin-bottom: 15px;
+.console-section {
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+audio {
+    display: none;
 }
