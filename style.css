@@ -22,7 +22,7 @@ main {
     height: 500px;
     border: 1px solid #ddd;
     margin-bottom: 20px;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
 }
