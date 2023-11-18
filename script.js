@@ -24,9 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (foundIndex !== -1 && foundIndex !== currentIndex) {
             // If a section is fully visible and it's different from the current index
             currentIndex = foundIndex;
-            bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
-            bgm.play();
-            bgm.classList.remove("hide-controls");
+
+            // Check if user interaction occurred before playing BGM
+            if (isUserInteracted()) {
+                bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
+                bgm.play();
+                bgm.classList.remove("hide-controls");
+            }
         } else if (foundIndex === -1 && currentIndex !== -1) {
             // If no section is fully visible, pause the BGM
             currentIndex = -1;
@@ -53,5 +57,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
+    }
+
+    // Function to check if the user has interacted with the document
+    function isUserInteracted() {
+        return (
+            document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0
+        );
     }
 });
