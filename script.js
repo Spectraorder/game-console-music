@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
-    const gameSections = document.querySelectorAll(".console-section");
+    const consoleSections = document.querySelectorAll(".console-section");
     let currentIndex = -1; // Start with an invalid index
-    let pauseTime = 0;
 
     window.addEventListener("scroll", function() {
         const currentPosition = window.scrollY;
 
         let foundIndex = -1;
 
-        gameSections.forEach(function(section, index) {
+        consoleSections.forEach(function(section, index) {
             const sectionTop = section.offsetTop - 100;
             const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -27,29 +26,16 @@ document.addEventListener("DOMContentLoaded", function() {
             currentIndex = foundIndex;
 
             // Pause the currently playing BGM
-            if (bgm.currentTime > 3) {
-                // If more than 3 seconds have passed, store the pause time
-                pauseTime = bgm.currentTime - 3;
-            } else {
-                // Otherwise, reset the pause time
-                pauseTime = 0;
-            }
-
             bgm.pause();
             bgm.classList.add("hide-controls");
 
             // Play the new BGM
-            bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
-
-            // Set the pause time for the new audio
-            bgm.currentTime = pauseTime;
-
+            bgm.src = `bgm/console${currentIndex + 1}.mp3`;
             bgm.play();
             bgm.classList.remove("hide-controls");
         } else if (foundIndex === -1 && currentIndex !== -1) {
             // If no section is fully visible, pause the BGM
             currentIndex = -1;
-            pauseTime = bgm.currentTime;
             bgm.pause();
             bgm.classList.add("hide-controls");
         }
@@ -69,9 +55,5 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
         }
-    }
-
-    function formatNumber(number) {
-        return number.toString().padStart(2, '0');
     }
 });
