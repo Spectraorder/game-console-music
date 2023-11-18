@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const volumeRange = document.getElementById("volumeRange");
 
+    
+
     volumeRange.addEventListener("input", function() {
         bgm.volume = volumeRange.value;
     });
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const scrollPosition = window.scrollY + window.innerHeight;
 
         gameSections.forEach((section, index) => {
+            fadeInEffect(section);
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -34,5 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
+    }
+
+    function fadeInEffect(section) {
+        const img = section.querySelector("img");
+
+        window.addEventListener("scroll", function() {
+            const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
+            img.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
+        });
     }
 });
