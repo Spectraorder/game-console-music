@@ -67,7 +67,7 @@ h1 {
 }
 
 .volume-control {
-    position: absolute;
+    position: relative;
     top: 20px;
     right: 20px;
     z-index: 1;
