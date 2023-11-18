@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
                 // Show corresponding console content
-                console.log(`Displaying content for Console ${index + 1}`);
-
+                section.style.opacity = 1;
+                section.style.transform = "translateY(0)";
+                
                 // Play corresponding BGM
                 bgm.src = `bgm/console${index + 1}.mp3`;
                 bgm.play();

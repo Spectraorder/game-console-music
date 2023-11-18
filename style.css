@@ -22,8 +22,13 @@ main {
     text-align: center;
     border: 1px solid #ddd;
     margin-bottom: 20px;
+    opacity: 0; /* Make the section initially invisible */
+    transform: translateY(20px); /* Move the section down a bit */
+    transition: opacity 0.5s, transform 0.5s; /* Add transition effect */
 }
 
-audio {
-    display: none;
+.audio-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
