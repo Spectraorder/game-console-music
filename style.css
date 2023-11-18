@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Hide the scroll bar */
 }
 
 header {
@@ -17,12 +18,13 @@ main {
 }
 
 .console-section {
-    height: 500px;
+    height: 100vh; /* Use 100% of the viewport height */
     border: 1px solid #ddd;
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
+    overflow: hidden; /* Hide any overflowing content */
 }
 
 .console-section img {
