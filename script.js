@@ -50,13 +50,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const sectionHeight = sectionBottom - sectionTop;
         const scrollPercentage = (scrollPosition - sectionTop) / sectionHeight;
 
-        const fadeOutStart = 0.7;
+        const fadeOutStart = 0.2;
         const fadeOutEnd = 0.9;
+
+        const fadeInStart = 0.2; // Adjust the start point for fade-in
+        const fadeInEnd = 0.5;   // Adjust the end point for fade-in
 
         if (scrollPercentage < fadeOutStart) {
             return 1;
         } else if (scrollPercentage > fadeOutEnd) {
             return 0;
+        } else if (scrollPercentage > fadeInStart && scrollPercentage < fadeInEnd) {
+            // Apply fade-in effect between fadeInStart and fadeInEnd
+            return (scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart);
         } else {
             return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
         }
