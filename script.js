@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
             section.style.opacity = opacity;
 
-            if (opacity === 1) {
-                section.style.transform = "translateY(0)";
+            if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
                 foundIndex = index;
             }
         });
