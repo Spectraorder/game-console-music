@@ -55,16 +55,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const fadeInStart = 0.2; // Adjust the start point for fade-in
         const fadeInEnd = 0.5;   // Adjust the end point for fade-in
-
-        if (scrollPercentage < fadeOutStart) {
-            return 1;
-        } else if (scrollPercentage > fadeOutEnd) {
+        if (scrollPercentage < fadeInStart) {
             return 0;
-        } else if (scrollPercentage > fadeInStart && scrollPercentage < fadeInEnd) {
-            // Apply fade-in effect between fadeInStart and fadeInEnd
-            return (scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart);
+        } else if (scrollPercentage > fadeInEnd) {
+            if (scrollPercentage < fadeOutStart) {
+                return 1;
+            } else if (scrollPercentage > fadeOutEnd) {
+                return 0;
+            } else {
+                return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+            }
         } else {
-            return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+            return 1 - ((scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart));
         }
     }
 
