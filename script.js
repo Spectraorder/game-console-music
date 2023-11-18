@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
                 // Show corresponding console content
-                console.log(`Displaying content for Console ${index + 1}`);
+                console.log(`Palying content for Game ${formatNumber(index + 1)}`);
 
                 // Play corresponding BGM
                 bgm.src = `bgm/game${formatNumber(index + 1)}.mp3`;
