@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let foundIndex = -1;
 
         gameSections.forEach(function(section, index) {
-            // const sectionTop = section.offsetTop - 100;
-            // const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
 
-            // const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
-            // section.style.opacity = opacity;
+            const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
+            section.style.opacity = opacity;
 
             if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
                 foundIndex = index;
@@ -46,29 +46,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // function calculateOpacity(scrollPosition, sectionTop, sectionBottom) {
-    //     const sectionHeight = sectionBottom - sectionTop;
-    //     const scrollPercentage = (scrollPosition - sectionTop) / sectionHeight;
+    function calculateOpacity(scrollPosition, sectionTop, sectionBottom) {
+        const sectionHeight = sectionBottom - sectionTop;
+        const scrollPercentage = (scrollPosition - sectionTop) / sectionHeight;
 
-    //     const fadeOutStart = 0.7;
-    //     const fadeOutEnd = 0.9;
+        // const fadeOutStart = 0.7;
+        // const fadeOutEnd = 0.9;
 
-    //     const fadeInStart = -0.5; // Adjust the start point for fade-in
-    //     const fadeInEnd = -0.2;   // Adjust the end point for fade-in
-    //     if (scrollPercentage < fadeInStart) {
-    //         return 0;
-    //     } else if (scrollPercentage > fadeInEnd) {
-    //         if (scrollPercentage < fadeOutStart) {
-    //             return 1;
-    //         } else if (scrollPercentage > fadeOutEnd) {
-    //             return 0;
-    //         } else {
-    //             return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
-    //         }
-    //     } else {
-    //         return 1 - ((scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart));
-    //     }
-    // }
+        const fadeInStart = -0.5; // Adjust the start point for fade-in
+        const fadeInEnd = -0.2;   // Adjust the end point for fade-in
+        if (scrollPercentage < fadeInStart) {
+            return 0;
+        } else if (scrollPercentage > fadeInEnd) {
+            return 1;
+            // if (scrollPercentage < fadeOutStart) {
+            //     return 1;
+            // } else if (scrollPercentage > fadeOutEnd) {
+            //     return 0;
+            // } else {
+            //     return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+            // }
+        } else {
+            return 1 - ((scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart));
+        }
+    }
 
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
