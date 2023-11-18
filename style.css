@@ -4,15 +4,6 @@ body {
     padding: 0;
 }
 
-.jumbotron {
-    background-image: url('path/to/jumbotron-image.jpg'); /* Add your jumbotron image path */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 100px; /* Adjust padding to make it as large as you want */
-}
-
 header {
     background-color: #333;
     color: #fff;
@@ -42,4 +33,8 @@ main {
 
 audio {
     display: none;
+}
+
+h1 {
+    text-align: center;
 }
