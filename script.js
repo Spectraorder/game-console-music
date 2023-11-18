@@ -53,15 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const fadeOutStart = 0.7;
         const fadeOutEnd = 0.9;
 
-        const fadeInStart = 0.2;
-        const fadeInEnd = 0.5;
-
         if (scrollPercentage < fadeOutStart) {
             return 1;
         } else if (scrollPercentage > fadeOutEnd) {
             return 0;
-        // } else if (scrollPercentage > fadeInStart && scrollPercentage < fadeInEnd) {
-        //     return (scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart);
         } else {
             return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
         }
