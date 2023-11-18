@@ -31,7 +31,7 @@
                 var img = section.querySelector("img");
     
                 window.addEventListener("scroll", function () {
-                    var opacity = 1 - window.scrollY / section.offsetHeight;
+                    var opacity = window.scrollY / section.offsetHeight;
                     img.style.opacity = opacity.toFixed(2); // Limit the number of decimal places
                 });
             });
