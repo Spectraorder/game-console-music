@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
-    const gameSections = document.querySelectorAll(".console-section img");
+    // const gameSections = document.querySelectorAll(".console-section img");
     let currentIndex = -1; // Start with an invalid index
 
     const volumeRange = document.getElementById("volumeRange");
