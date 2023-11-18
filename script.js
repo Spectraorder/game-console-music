@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const sectionHeight = sectionBottom - sectionTop;
         const scrollPercentage = (scrollPosition - sectionTop) / sectionHeight;
 
-        const fadeOutStart = 0.2;
+        const fadeOutStart = 0.6;
         const fadeOutEnd = 0.9;
 
         const fadeInStart = 0.2; // Adjust the start point for fade-in
