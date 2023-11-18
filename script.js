@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
     const gameSections = document.querySelectorAll(".console-section");
-    let currentIndex = -1; // Start with an invalid index
 
     window.addEventListener("scroll", function() {
         const currentPosition = window.scrollY;
-
-        let foundIndex = -1;
 
         gameSections.forEach(function(section, index) {
             const sectionTop = section.offsetTop - 100;
@@ -17,30 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (opacity === 1) {
                 section.style.transform = "translateY(0)";
-                foundIndex = index;
+            }
+            if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
+                console.log(`Palying content for Game ${formatNumber(index + 1)}`);
+                
+                bgm.src = `bgm/game${formatNumber(index + 1)}.mp3`;
+                bgm.play();
             }
         });
-
-        if (foundIndex !== -1 && foundIndex !== currentIndex) {
-            // If a section is fully visible and it's different from the current index
-            currentIndex = foundIndex;
-
-            // Pause the currently playing BGM
-            bgm.pause();
-            bgm.classList.add("hide-controls");
-
-            // Play the new BGM only if the current game section is fully displayed
-            if (gameSections[currentIndex].style.opacity === '1') {
-                bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
-                bgm.play();
-                bgm.classList.remove("hide-controls");
-            }
-        } else if (foundIndex === -1 && currentIndex !== -1) {
-            // If no section is fully visible, pause the BGM
-            currentIndex = -1;
-            bgm.pause();
-            bgm.classList.add("hide-controls");
-        }
     });
 
     function calculateOpacity(scrollPosition, sectionTop, sectionBottom) {
