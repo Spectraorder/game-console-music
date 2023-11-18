@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
-    // const gameSections = document.querySelectorAll(".console-section img");
+    const gameSections = document.querySelectorAll(".console-section");
     let currentIndex = -1; // Start with an invalid index
 
     const volumeRange = document.getElementById("volumeRange");
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let foundIndex = -1;
 
         gameSections.forEach(function(section, index) {
-            const sectionTop = section.parentElement.offsetTop - 100; // Adjust for parent offset
-            const sectionBottom = sectionTop + section.parentElement.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
 
             const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
             section.style.opacity = opacity;
