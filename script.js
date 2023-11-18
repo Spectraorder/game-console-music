@@ -10,67 +10,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     window.addEventListener("scroll", function() {
-        const currentPosition = window.scrollY;
+        const scrollPosition = window.scrollY;
 
-        let foundIndex = -1;
-
-        gameSections.forEach(function(section, index) {
-            const sectionTop = section.offsetTop - 100;
+        gameSections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
 
-            // const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
-            // section.style.opacity = opacity;
-
-            if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
-                foundIndex = index;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                // Update currentIndex only if it's different from the current index
+                if (currentIndex !== index) {
+                    currentIndex = index;
+                    console.log(`You are in section ${formatNumber(index + 1)}`);
+                }
             }
         });
-
-        if (foundIndex !== -1 && foundIndex !== currentIndex) {
-            // If a section is fully visible and it's different from the current index
-            currentIndex = foundIndex;
-
-            // Pause the currently playing BGM
-            bgm.pause();
-            bgm.classList.add("hide-controls");
-
-            // Play the new BGM
-            console.log(`Displaying content for Game ${index + 1}`);
-            bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
-            bgm.play();
-            bgm.classList.remove("hide-controls");
-        } else if (foundIndex === -1 && currentIndex !== -1) {
-            // If no section is fully visible, pause the BGM
-            currentIndex = -1;
-            bgm.pause();
-            bgm.classList.add("hide-controls");
-        }
     });
-
-    function calculateOpacity(scrollPosition, sectionTop, sectionBottom) {
-        const sectionHeight = sectionBottom - sectionTop;
-        const scrollPercentage = (scrollPosition - sectionTop) / sectionHeight;
-
-        // const fadeOutStart = 0.7;
-        // const fadeOutEnd = 0.9;
-
-        const fadeInStart = -0.5; // Adjust the start point for fade-in
-        const fadeInEnd = -0.2;   // Adjust the end point for fade-in
-        if (scrollPercentage < fadeInStart) {
-            return 0;
-        } else if (scrollPercentage > fadeInEnd) {
-            return 1;
-            // if (scrollPercentage < fadeOutStart) {
-            //     return 1;
-            // } else if (scrollPercentage > fadeOutEnd) {
-            //     return 0;
-            // } else {
-            //     return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
-            // }
-        } else {
-            return 1 - ((scrollPercentage - fadeInStart) / (fadeInEnd - fadeInStart));
-        }
-    }
 
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
