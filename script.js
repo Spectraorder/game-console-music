@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const sectionTop = section.offsetTop - 100;
             const sectionBottom = sectionTop + section.offsetHeight;
 
-            const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
-            section.style.opacity = opacity;
+            // const opacity = calculateOpacity(currentPosition, sectionTop, sectionBottom);
+            // section.style.opacity = opacity;
 
             if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
                 foundIndex = index;
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
             bgm.classList.add("hide-controls");
 
             // Play the new BGM
+            console.log(`Displaying content for Game ${index + 1}`);
             bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
             bgm.play();
             bgm.classList.remove("hide-controls");

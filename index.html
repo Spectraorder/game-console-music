@@ -25,6 +25,17 @@
             <!-- Add an image for the first console -->
             <img src="imgs/game01.jpg" alt="Game 1">
         </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var section = document.getElementById("game1");
+                var img = section.querySelector("img");
+    
+                window.addEventListener("scroll", function () {
+                    var opacity = 1 - window.scrollY / section.offsetHeight;
+                    img.style.opacity = opacity.toFixed(2); // Limit the number of decimal places
+                });
+            });
+        </script>
 
         <section id="game2" class="console-section">
             <!-- Add an image for the second console -->
