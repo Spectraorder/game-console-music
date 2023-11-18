@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     window.addEventListener("scroll", function() {
-        const scrollPosition = window.scrollY;
+        const scrollPosition = window.scrollY + window.innerHeight;
 
         gameSections.forEach((section, index) => {
             const sectionTop = section.offsetTop;
@@ -20,7 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Update currentIndex only if it's different from the current index
                 if (currentIndex !== index) {
                     currentIndex = index;
-                    console.log(`You are in section ${formatNumber(index + 1)}`);
+                    console.log(`You are in game ${formatNumber(index + 1)}`);
+
+                    // Play the corresponding BGM
+                    const bgm = document.getElementById("bgm");
+                    bgm.src = `bgm/game${formatNumber(index + 1)}.mp3`;
+                    bgm.load();
+                    bgm.play();
                 }
             }
         });
