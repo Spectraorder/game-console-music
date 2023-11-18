@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
-    const consoleSections = document.querySelectorAll(".console-section");
+    const gameSections = document.querySelectorAll(".console-section");
     let currentIndex = -1; // Start with an invalid index
 
     window.addEventListener("scroll", function() {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let foundIndex = -1;
 
-        consoleSections.forEach(function(section, index) {
+        gameSections.forEach(function(section, index) {
             const sectionTop = section.offsetTop - 100;
             const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -29,10 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
             bgm.pause();
             bgm.classList.add("hide-controls");
 
-            // Play the new BGM
-            bgm.src = `bgm/console${currentIndex + 1}.mp3`;
-            bgm.play();
-            bgm.classList.remove("hide-controls");
+            // Play the new BGM only if the current game section is fully displayed
+            if (gameSections[currentIndex].style.opacity === '1') {
+                bgm.src = `bgm/game${formatNumber(currentIndex + 1)}.mp3`;
+                bgm.play();
+                bgm.classList.remove("hide-controls");
+            }
         } else if (foundIndex === -1 && currentIndex !== -1) {
             // If no section is fully visible, pause the BGM
             currentIndex = -1;
@@ -55,5 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             return 1 - ((scrollPercentage - fadeOutStart) / (fadeOutEnd - fadeOutStart));
         }
+    }
+
+    function formatNumber(number) {
+        return number.toString().padStart(2, '0');
     }
 });
