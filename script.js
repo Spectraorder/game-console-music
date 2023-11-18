@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const gameSections = document.querySelectorAll(".console-section");
     let currentIndex = -1; // Start with an invalid index
 
+    volumeRange.addEventListener("input", function() {
+        bgm.volume = volumeRange.value;
+    });
+
     window.addEventListener("scroll", function() {
         const currentPosition = window.scrollY;
 

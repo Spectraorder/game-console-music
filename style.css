@@ -65,3 +65,16 @@ h1 {
     font-size: 3em; /* Adjust the font size as needed */
     margin: 0;
 }
+
+.volume-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    color: #fff;
+}
+
+/* Styling for the volume input */
+#volumeRange {
+    width: 80px;
+}
