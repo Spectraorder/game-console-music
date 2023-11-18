@@ -15,11 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
             // Update the opacity of the section
             section.style.opacity = opacity;
 
-            if (opacity > 0) {
-                // If the section is still visible, update the transform and play BGM
+            if (opacity === 1) {
+                // If the section is fully visible, update the transform
                 section.style.transform = "translateY(0)";
-                bgm.src = `bgm/console${index + 1}.mp3`;
-                bgm.play();
+
+                // Play BGM only if it's not already playing
+                if (bgm.paused) {
+                    bgm.src = `bgm/console${index + 1}.mp3`;
+                    bgm.play();
+                }
+            } else {
+                // If the section is not fully visible, pause the BGM
+                bgm.pause();
             }
         });
     });
