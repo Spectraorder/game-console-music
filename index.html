@@ -41,12 +41,24 @@
             <!-- Add an image for the second console -->
             <img src="imgs/game02.jpg" alt="Game 2">
         </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var section = document.getElementById("game2");
+                var img = section.querySelector("img");
+    
+                window.addEventListener("scroll", function () {
+                    var opacity = window.scrollY / section.offsetHeight;
+                    img.style.opacity = opacity.toFixed(2); // Limit the number of decimal places
+                });
+            });
+        </script>
 
         <!-- Add more sections for additional consoles -->
         <section id="game3" class="console-section">
             <!-- Add an image for the third console -->
             <img src="imgs/game03.jpg" alt="Game 3">
         </section>
+        
 
         <section id="game4" class="console-section">
             <!-- Add an image for the fourth console -->
