@@ -48,7 +48,7 @@ audio {
     height: auto;
     opacity: 0.5; /* Adjust the opacity as needed */
     z-index: -1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5));
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5));
 }
 
 .title-container {
