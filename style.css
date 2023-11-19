@@ -76,14 +76,35 @@ audio {
 .luigi-image-container {
     position: absolute;
     top: 50%;
-    right: 300px;
+    right: 350px;
     transform: translate(0, -50%);
     z-index: 1;
 }
 
 .luigi-image-container img {
-    width: 300px; /* Adjust the width as needed */
+    width: 340px; /* Adjust the width as needed */
     height: auto;
+}
+
+.mario-image-container img,
+.luigi-image-container img {
+    animation: popUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .title-container {
@@ -107,3 +128,4 @@ audio {
 #volumeRange {
     width: 80px;
 }
+
