@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = section.querySelector("img");
 
         window.addEventListener("scroll", function() {
-            const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
+            const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / (window.innerHeight * 0.5);
             img.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
         });
     }
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = section.querySelector("img");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
-        const translateX = Math.min(slideInAmount * 70, 40); // Adjust the factor for the desired slide-in distance
+        const translateX = Math.min(slideInAmount * 90, 40); // Adjust the factor for the desired slide-in distance
 
         img.style.transform = `translateX(${translateX}%)`;
     }
