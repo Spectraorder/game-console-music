@@ -19,7 +19,7 @@ header {
 
 h1 {
     color: #fff;
-    font-size: 3em; /* Adjust the font size as needed */
+    font-size: 8em; /* Adjust the font size as needed */
     margin: 0;
 }
 
@@ -63,23 +63,36 @@ audio {
 .mario-image-container {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 200px;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+
+.mario-image-container img {
+    width: 300px; /* Adjust the width as needed */
+    height: auto;
+}
+
+.luigi-image-container {
+    position: absolute;
+    top: 50%;
+    right: 300px;
     transform: translate(0, -50%);
     z-index: 1;
 }
 
-.mario-image-container img {
-    width: 100px; /* Adjust the width as needed */
+.luigi-image-container img {
+    width: 300px; /* Adjust the width as needed */
     height: auto;
 }
 
 .title-container {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-    padding-left: 20px; /* Adjust as needed */
+    left: 400px; /* Adjust the left spacing */
+    transform: translate(0, -50%);
+    width: 900px;
+    height: auto;
     z-index: 1;
 }
 
