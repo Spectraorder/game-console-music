@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = section.querySelector("img");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
-        const translateX = Math.min(slideInAmount * 90, 40); // Adjust the factor for the desired slide-in distance
+        const translateX = Math.min(slideInAmount * 60, 40); // Adjust the factor for the desired slide-in distance
 
         img.style.transform = `translateX(${translateX}%)`;
 
