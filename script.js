@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     window.addEventListener("scroll", function() {
-        const scrollPosition = window.scrollY + window.innerHeight;
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
 
         gameSections.forEach((section, index) => {
             fadeInEffect(section);
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = section.querySelector("img");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
-        const translateX = slideInAmount * 100; // Adjust the factor for the desired slide-in distance
+        const translateX = Math.min(slideInAmount * 70, 40); // Adjust the factor for the desired slide-in distance
 
         img.style.transform = `translateX(${translateX}%)`;
     }
