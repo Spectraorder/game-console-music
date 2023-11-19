@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 10;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
     overflow-y: scroll;
     background-color: #000;
 }
@@ -19,7 +19,7 @@ header {
 
 h1 {
     color: #fff;
-    font-size: 6em; /* Adjust the font size as needed */
+    font-size: 6em;
     margin: 0;
     animation: fadeInUp 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 1;
@@ -56,7 +56,7 @@ audio {
 .title-container {
     position: absolute;
     top: 50%;
-    left: 400px; /* Adjust the left spacing */
+    left: 400px;
     transform: translate(0, -50%);
     width: 700px;
     height: auto;
@@ -66,7 +66,7 @@ audio {
 .background-video {
     width: 100%;
     height: auto;
-    opacity: 0.5; /* Adjust the opacity as needed */
+    opacity: 0.5;
     z-index: -1;
     mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5));
     -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5));
@@ -81,7 +81,7 @@ audio {
 }
 
 .mario-image-container img {
-    width: 300px; /* Adjust the width as needed */
+    width: 300px;
     height: auto;
 }
 
@@ -94,7 +94,7 @@ audio {
 }
 
 .luigi-image-container img {
-    width: 340px; /* Adjust the width as needed */
+    width: 340px;
     height: auto;
 }
 
@@ -111,15 +111,15 @@ audio {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity */
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
-    border-radius: 15px; /* Adjust the border radius for rounded corners */
+    border-radius: 15px;
 }
 
 .additional-text {
     margin: 0;
-    font-size: 1.2em; /* Adjust the font size */
-    color: #333; /* Adjust the text color */
+    font-size: 1.2em;
+    color: #333;
 }
 
 .volume-control {
