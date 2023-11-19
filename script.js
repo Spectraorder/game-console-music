@@ -56,5 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const translateX = Math.min(slideInAmount * 90, 40); // Adjust the factor for the desired slide-in distance
 
         img.style.transform = `translateX(${translateX}%)`;
+
+        const borderWidth = Math.min(slideInAmount * 10, 3); // Adjust the factor for the desired border slide-in distance
+        img.style.border = `${borderWidth}px solid #ddd`;
     }
 });
