@@ -24,7 +24,7 @@ main {
     margin-bottom: 20px;
     opacity: 1;
     transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
+    transform: translateX(-800px);
 }
 
 .console-section img {
