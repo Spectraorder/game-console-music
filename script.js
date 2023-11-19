@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         gameSections.forEach((section, index) => {
             fadeInEffect(section);
+            slideInEffect(section);
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -46,5 +47,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
             img.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
         });
+    }
+
+    function slideInEffect(section) {
+        const img = section.querySelector("img");
+
+        const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
+        const translateX = slideInAmount * 100; // Adjust the factor for the desired slide-in distance
+
+        img.style.transform = `translateX(${translateX}%)`;
     }
 });
