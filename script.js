@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const marioGifContainer = document.getElementById("marioGifContainer");
     const marioGif = document.getElementById("marioGif");
+    const firstGameImage = document.querySelector("#game1 .game-image");
 
     let currentIndex = -1; // Start with an invalid index
 
