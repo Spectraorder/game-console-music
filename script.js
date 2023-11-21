@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const volumeRange = document.getElementById("volumeRange");
 
-    
-
     volumeRange.addEventListener("input", function() {
         bgm.volume = volumeRange.value;
     });
@@ -36,6 +34,18 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    gameSections.forEach((section, index) => {
+        const img = section.querySelector("img");
+
+        img.addEventListener("mouseover", function() {
+            highlightImage(img);
+        });
+
+        img.addEventListener("mouseout", function() {
+            removeHighlight(img);
+        });
+    });
+
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
     }
@@ -59,5 +69,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const borderWidth = Math.min(slideInAmount * 10, 3); // Adjust the factor for the desired border slide-in distance
         img.style.border = `${borderWidth}px solid #ddd`;
+    }
+
+    function highlightImage(img) {
+        img.style.border = "2px solid #ff0000"; // Change border color to highlight
+    }
+
+    function removeHighlight(img) {
+        img.style.border = ""; // Remove border to remove highlight
     }
 });
