@@ -7,13 +7,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const marioGifContainer = document.getElementById("marioGifContainer");
     const firstGameImage = document.getElementById("Game01Image");
 
-    let currentIndex = -1; // Start with an invalid index
-    let animationInProgress = false; // Variable to track animation status
+    let currentIndex = -1;
+    let animationInProgress = false;
 
+    // volumn bar control
     volumeRange.addEventListener("input", function() {
         bgm.volume = volumeRange.value;
     });
 
+    // music player and scroll effects
     window.addEventListener("scroll", function() {
         const scrollPosition = window.scrollY + window.innerHeight / 2;
 
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // image highlighter
     gameSections.forEach((section, index) => {
         const img = section.querySelector("img");
 
@@ -51,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // mario gif run animation
     firstGameImage.addEventListener("click", function() {
         if (!animationInProgress) {
             showMarioGif();
