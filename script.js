@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const volumeRange = document.getElementById("volumeRange");
 
     const marioGifContainer = document.getElementById("marioGifContainer");
-    const marioGif = document.getElementById("marioGif");
-    const firstGameImage = document.querySelector(".gif-container");
+    const firstGameImage = document.getElementById("Game01Image");
 
     let currentIndex = -1; // Start with an invalid index
 
