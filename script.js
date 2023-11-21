@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!animationInProgress) {
             showMarioGif();
         }
-        animationInProgress = false;
     });
 
     function formatNumber(number) {
@@ -99,5 +98,8 @@ document.addEventListener("DOMContentLoaded", function() {
         marioGifContainer.style.animation = "none";
         void marioGifContainer.offsetWidth; // Trigger reflow
         marioGifContainer.style.animation = "slideIn 3s linear";
+        setTimeout(function() {
+            animationInProgress = false;
+        }, 3000);
     }
 });
