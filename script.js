@@ -72,10 +72,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function highlightImage(img) {
-        img.style.border = "2px solid #ff0000"; // Change border color to highlight
+        img.style.transition = "filter 0.5s"; // Add transition for gradual change
+        img.style.filter = "brightness(0.5)"; // Change border color to highlight
     }
 
     function removeHighlight(img) {
-        img.style.border = ""; // Remove border to remove highlight
+        img.style.transition = "filter 0.5s"; // Add transition for gradual change
+        img.style.filter = ""; // Remove filter to remove highlight
     }
 });
