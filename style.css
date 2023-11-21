@@ -46,6 +46,7 @@ audio {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    z-index: 2;
 }
 
 .header {
@@ -136,6 +137,7 @@ audio {
     top: 50%;
     left: 100%;
     transform: translate(20%, 85%);
+    z-index: 1;
 }
 
 #volumeRange {
@@ -145,6 +147,7 @@ audio {
 #marioGif {
     width: 90px;
     height: auto;
+    z-index: 0;
 }
 
 @keyframes popUp {
