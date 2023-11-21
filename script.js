@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const firstGameImage = document.getElementById("Game01Image");
 
     let currentIndex = -1; // Start with an invalid index
+    let animationInProgress = false; // Variable to track animation status
 
     volumeRange.addEventListener("input", function() {
         bgm.volume = volumeRange.value;
@@ -51,7 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     firstGameImage.addEventListener("click", function() {
-        showMarioGif();
+        if (!animationInProgress) {
+            showMarioGif();
+        }
+        animationInProgress = false;
     });
 
     function formatNumber(number) {
@@ -90,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showMarioGif() {
+        animationInProgress = true;
         marioGifContainer.style.display = "block";
         marioGifContainer.style.animation = "none";
         void marioGifContainer.offsetWidth; // Trigger reflow
-        marioGifContainer.style.animation = "slideIn 1s linear";
+        marioGifContainer.style.animation = "slideIn 3s linear";
     }
 });
