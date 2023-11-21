@@ -56,9 +56,9 @@ audio {
 .title-container {
     position: absolute;
     top: 50%;
-    left: 400px;
+    left: 20%;
     transform: translate(0, -50%);
-    width: 700px;
+    width: 40%;
     height: auto;
     z-index: 1;
 }
