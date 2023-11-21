@@ -1,9 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
     const gameSections = document.querySelectorAll(".console-section");
-    let currentIndex = -1; // Start with an invalid index
 
     const volumeRange = document.getElementById("volumeRange");
+
+    const marioGifContainer = document.getElementById("marioGifContainer");
+    const marioGif = document.getElementById("marioGif");
+
+    let currentIndex = -1; // Start with an invalid index
 
     volumeRange.addEventListener("input", function() {
         bgm.volume = volumeRange.value;
@@ -46,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    firstGameImage.addEventListener("click", function() {
+        showMarioGif();
+    });
+
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
     }
@@ -79,5 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function removeHighlight(img) {
         img.style.transition = "filter 0.5s"; // Add transition for gradual change
         img.style.filter = ""; // Remove filter to remove highlight
+    }
+
+    function showMarioGif() {
+        marioGifContainer.style.display = "block";
+        marioGifContainer.style.animation = "slideIn 1s linear";
     }
 });

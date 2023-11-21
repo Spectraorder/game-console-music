@@ -130,8 +130,21 @@ audio {
     color: #fff;
 }
 
+.gif-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
 #volumeRange {
     width: 80px;
+}
+
+#marioGif {
+    width: 200px;
+    height: auto;
 }
 
 @keyframes popUp {
@@ -156,5 +169,14 @@ audio {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        left: -200px; /* Adjust the starting position off-screen */
+    }
+    to {
+        left: 0;
     }
 }
