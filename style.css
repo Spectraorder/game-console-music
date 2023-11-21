@@ -75,26 +75,26 @@ audio {
 .mario-image-container {
     position: absolute;
     top: 50%;
-    right: 200px;
+    right: 10%;
     transform: translate(0, -50%);
     z-index: 2;
 }
 
 .mario-image-container img {
-    width: 300px;
+    width: 100%;
     height: auto;
 }
 
 .luigi-image-container {
     position: absolute;
     top: 50%;
-    right: 350px;
+    right: 5%;
     transform: translate(0, -50%);
     z-index: 1;
 }
 
 .luigi-image-container img {
-    width: 340px;
+    width: 60%;
     height: auto;
 }
 
