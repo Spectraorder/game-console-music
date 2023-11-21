@@ -134,7 +134,7 @@ audio {
     display: none;
     position: fixed;
     top: 50%;
-    left: 0;
+    left: 120%;
     transform: translate(0, -50%);
 }
 
@@ -174,9 +174,9 @@ audio {
 
 @keyframes slideIn {
     from {
-        left: -200px; /* Adjust the starting position off-screen */
+        left: 120%; /* Adjust the starting position off-screen */
     }
     to {
-        left: 0;
+        left: 200%;
     }
 }
