@@ -134,8 +134,8 @@ audio {
     display: none;
     position: fixed;
     top: 50%;
-    left: 120%;
-    transform: translate(0, -50%);
+    left: 100%;
+    transform: translate(20%, 85%);
 }
 
 #volumeRange {
@@ -143,7 +143,7 @@ audio {
 }
 
 #marioGif {
-    width: 200px;
+    width: 90px;
     height: auto;
 }
 
@@ -174,9 +174,9 @@ audio {
 
 @keyframes slideIn {
     from {
-        left: 120%; /* Adjust the starting position off-screen */
+        left: 100%; /* Adjust the starting position off-screen */
     }
     to {
-        left: 200%;
+        left: 300%;
     }
 }

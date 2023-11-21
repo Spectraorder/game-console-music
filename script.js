@@ -91,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showMarioGif() {
         marioGifContainer.style.display = "block";
+        marioGifContainer.style.animation = "none";
+        void marioGifContainer.offsetWidth; // Trigger reflow
         marioGifContainer.style.animation = "slideIn 1s linear";
+        marioGifContainer.style.display = "none";
     }
 });
