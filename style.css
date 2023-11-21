@@ -46,6 +46,9 @@ audio {
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+}
+
+.console-image {
     z-index: 2;
 }
 
