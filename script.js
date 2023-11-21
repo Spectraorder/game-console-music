@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = section.querySelector("img");
 
         window.addEventListener("scroll", function() {
-            const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / (window.innerHeight * 0.5);
+            const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
             img.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
         });
     }
