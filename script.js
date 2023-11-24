@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         gameSections.forEach((section, index) => {
             fadeInEffect(section);
-            slideInEffect(section);
+            slideInEffect(section, index);
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
 

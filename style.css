@@ -38,7 +38,13 @@ audio {
     height: 500px;
     margin-bottom: 500px;
     opacity: 1;
-    transform: translate(-700px, 300px);
+    &:nth-child(odd) {
+        transform: translate(-700px, 300px);
+    }
+
+    &:nth-child(even) {
+        transform: translate(700px, 300px);
+    }
 }
 
 .console-section img {
