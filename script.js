@@ -74,11 +74,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    function slideInEffect(section) {
+    function slideInEffect(section, index) {
         const img = section.querySelector("img");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
-        const translateX = Math.min(slideInAmount * 60, 40); // Adjust the factor for the desired slide-in distance
+        let translateX;
+
+        if (index % 2 === 0) {
+            // For even-indexed sections (2, 4, 6, ...)
+            translateX = Math.min(slideInAmount * 60, 40); // Adjust the factor for the desired slide-in distance
+        } else {
+            // For odd-indexed sections (1, 3, 5, ...)
+            translateX = Math.max(-(slideInAmount * 60), -40); // Adjust the factor for the desired slide-in distance
+        }
 
         img.style.transform = `translateX(${translateX}%)`;
 
