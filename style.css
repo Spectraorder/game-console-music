@@ -48,6 +48,17 @@ audio {
     opacity: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.console-section h3 {
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    /* transform:  translateX(305%) translateY(-300%); */
 }
 
 .console-section img {
@@ -57,12 +68,12 @@ audio {
     cursor: pointer;
 }
 
-.console-section:nth-child(odd) {
-    transform: translate(-700px, 300px);
+.console-section img:nth-of-type(odd) {
+    transform: translateX(-85%) translateY(60%);
 }
 
-.console-section:nth-child(even) {
-    transform: translate(700px, 300px);
+.console-section:nth-of-type(even) {
+    transform: translateX(85%) translateY(60%);
 }
 
 .header {
