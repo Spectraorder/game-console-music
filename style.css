@@ -61,6 +61,23 @@ audio {
     transform: translateY(160px);
 }
 
+.img-refer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 25%;
+    padding: 20px;
+    width: 500px;
+}
+
+.img-refer h4 {
+    margin: 10;
+    font-size: 1.2em;
+    color: #fff;
+    line-height: 1.4;
+}
+
 .console-section img {
     width: 825px;
     height: 500px;
@@ -74,6 +91,16 @@ audio {
 
 .console-section:nth-of-type(even) .img-container {
     transform: translateX(85%) translateY(60%);
+}
+
+.img-refer:nth-of-type(odd) {
+    transform: translateX(-20%);
+    text-align: right;
+}
+
+.img-refer:nth-of-type(even) {
+    transform: translateX(80%) translateY(-45%);
+    text-align: left;
 }
 
 .header {
