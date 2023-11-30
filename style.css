@@ -203,6 +203,10 @@ audio {
     height: auto;
 }
 
+#bottom-blank-space {
+    height: 150px;
+}
+
 @keyframes popUp {
     0% {
         transform: scale(0);
