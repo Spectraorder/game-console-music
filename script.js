@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showMarioGif() {
-        console.log("Clicking now");
+        // console.log("Clicking now");
         animationInProgress = true;
         marioGifContainer.style.display = "block";
         marioGifContainer.style.animation = "none";
