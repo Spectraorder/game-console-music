@@ -80,19 +80,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function slideInEffect(section, index) {
         const img = section.querySelector("img");
+        const h4 = section.querySelector("h4");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
         let translateX;
 
         if (index % 2 === 0) {
             // For even-indexed sections (2, 4, 6, ...)
-            translateX = Math.min(slideInAmount * 60, 40); // Adjust the factor for the desired slide-in distance
+            translateX = Math.min(slideInAmount * 60, 40);
+            // translateXh4 = Math.max(-(slideInAmount * 60), -40);
         } else {
             // For odd-indexed sections (1, 3, 5, ...)
-            translateX = Math.max(-(slideInAmount * 60), -40); // Adjust the factor for the desired slide-in distance
+            translateX = Math.max(-(slideInAmount * 60), -40);
+            // translateXh4 = Math.min(slideInAmount * 60, 40);
         }
 
         img.style.transform = `translateX(${translateX}%)`;
+        // h4.style.transform = `translateX(${translateXh4}%)`;
 
         const borderWidth = Math.min(slideInAmount * 10, 3); // Adjust the factor for the desired border slide-in distance
         img.style.border = `${borderWidth}px solid #ddd`;
