@@ -66,11 +66,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function fadeInEffect(section) {
+        const h3 = section.querySelector("h3");
         const img = section.querySelector("img");
 
         window.addEventListener("scroll", function() {
             const opacity = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
             img.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
+            h3.style.opacity = opacity > 1 ? 1 : opacity.toFixed(2);
         });
     }
 
