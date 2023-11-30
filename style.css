@@ -58,21 +58,20 @@ audio {
     position: absolute;
     align-items: center;
     text-align: center;
-    /* transform:  translateX(305%) translateY(-300%); */
 }
 
 .console-section img {
-    width: 100%;
-    height: 100%;
+    width: 825px;
+    height: 500px;
     object-fit: cover;
     cursor: pointer;
 }
 
-.console-section img:nth-of-type(odd) {
+.console-section:nth-of-type(odd) .img-container {
     transform: translateX(-85%) translateY(60%);
 }
 
-.console-section:nth-of-type(even) {
+.console-section:nth-of-type(even) .img-container {
     transform: translateX(85%) translateY(60%);
 }
 
