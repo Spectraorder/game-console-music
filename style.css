@@ -93,14 +93,14 @@ audio {
     transform: translateX(85%) translateY(60%);
 }
 
-.img-refer:nth-of-type(odd) {
-    transform: translateX(-20%);
-    text-align: right;
-}
-
-.img-refer:nth-of-type(even) {
+.console-section:nth-of-type(odd) .img-refer{
     transform: translateX(80%) translateY(-45%);
     text-align: left;
+}
+
+.console-section:nth-of-type(even) .img-refer{
+    transform: translateX(-80%) translateY(-45%);
+    text-align: right;
 }
 
 .header {
