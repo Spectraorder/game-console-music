@@ -4,16 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const volumeRange = document.getElementById("volumeRange");
 
-    const marioGifContainer = document.getElementById("marioGifContainer");
-    const marioPipe = document.getElementById("marioPipe");
-
     const firstGameImage = document.getElementById("Game01Image");
     const LastGameImage = document.getElementById("Game09Image");
-
-    // const marioPipe = document.createElement("img");
-    // marioPipe.src = "imgs/mario_pipe.png";
-    // marioPipe.id = "marioPipe";
-    // document.body.appendChild(marioPipe);
 
     let currentIndex = -1;
     let animationInProgress = false;
@@ -71,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     LastGameImage.addEventListener("click", function() {
         if (!animationInProgress) {
-            showMarioPipe();
+            popUpMarioPipes();
         }
     });
 
@@ -94,16 +86,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function slideInEffect(section, index) {
         const img = section.querySelector("img");
-        const h4 = section.querySelector("h4");
 
         const slideInAmount = (window.scrollY - section.offsetTop + window.innerHeight) / window.innerHeight;
         let translateX;
 
         if (index % 2 === 0) {
-            // For even-indexed sections (2, 4, 6, ...)
             translateX = Math.min(slideInAmount * 60, 40);
         } else {
-            // For odd-indexed sections (1, 3, 5, ...)
             translateX = Math.max(-(slideInAmount * 60), -40);
         }
 
@@ -114,16 +103,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function highlightImage(img) {
-        img.style.transition = "filter 0.5s"; // Add transition for gradual change
-        img.style.filter = "brightness(0.5)"; // Change border color to highlight
+        img.style.transition = "filter 0.5s";
+        img.style.filter = "brightness(0.5)";
     }
 
     function removeHighlight(img) {
-        img.style.transition = "filter 0.5s"; // Add transition for gradual change
-        img.style.filter = ""; // Remove filter to remove highlight
+        img.style.transition = "filter 0.5s";
+        img.style.filter = "";
     }
 
     function showMarioGif() {
+        const marioGifContainer = document.getElementById("marioGifContainer");
         animationInProgress = true;
         marioGifContainer.style.display = "block";
         marioGifContainer.style.animation = "none";
@@ -134,7 +124,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    function showMarioPipe() {
-        marioPipe.style.right = "20px"
+    function popUpMarioPipes() {
+        var marioPipesContainer = document.querySelector('.marioPipes-container');
+        var pipes = document.querySelectorAll('.marioPipe');
+        animationInProgress = true;
+
+        pipes.forEach((pipe, index) => {
+            pipe.style.animation = "none";
+            void pipe.offsetWidth;
+            pipe.style.animation = `popUpPipe 2s ease-in-out ${index * 0.2}s`;
+        });
+        setTimeout(function() {
+            animationInProgress = false;
+        }, 3000);
+    
     }
 });

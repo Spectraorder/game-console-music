@@ -207,7 +207,7 @@ audio {
 .marioPipe {
     max-width: 100%;
     max-height: 100%;
-    transform: translate(140%, 900%);
+    transform: translate(140%, 910%);
 }
 
 #volumeRange {
@@ -250,9 +250,21 @@ audio {
 
 @keyframes slideIn {
     from {
-        left: 100%; /* Adjust the starting position off-screen */
+        left: 100%;
     }
     to {
         left: 300%;
+    }
+}
+
+@keyframes popUpPipe {
+    0% {
+        transform: translate(140%, 910%);
+    }
+    50% {
+        transform: translate(140%, 800%);
+    }
+    100% {
+        transform: translate(140%, 910%);
     }
 }
