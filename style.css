@@ -194,6 +194,13 @@ audio {
     z-index: -1;
 }
 
+.gif-container-rac {
+    display: none;
+    position: absolute;
+    transform: translate(-20%, -105%) scaleX(-1);
+    z-index: -1;
+}
+
 .marioPipes-container {
     width: 100px;
     height: 100px;
@@ -218,6 +225,12 @@ audio {
 
 #volumeRange {
     width: 80px;
+}
+
+#marioRacGif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #marioGif {
@@ -260,6 +273,15 @@ audio {
     }
     to {
         left: 300%;
+    }
+}
+
+@keyframes slideInInv {
+    from {
+        left: 20%;
+    }
+    to {
+        left: -200%;
     }
 }
 

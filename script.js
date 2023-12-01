@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const volumeRange = document.getElementById("volumeRange");
 
     const firstGameImage = document.getElementById("Game01Image");
+    const marioRacRun = document.getElementById("Game02Image");
     const fireworksTrigger = document.getElementById("Game08Image");
     const LastGameImage = document.getElementById("Game09Image");
 
@@ -59,6 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
     firstGameImage.addEventListener("click", function() {
         if (!animationInProgress) {
             showMarioGif();
+        }
+    });
+
+    // mario racoon gif run animation
+    marioRacRun.addEventListener("click", function() {
+        if (!animationInProgress) {
+            showMarioRacGif();
         }
     });
 
@@ -128,6 +136,18 @@ document.addEventListener("DOMContentLoaded", function() {
         marioGifContainer.style.animation = "none";
         void marioGifContainer.offsetWidth;
         marioGifContainer.style.animation = "slideIn 3s linear";
+        setTimeout(function() {
+            animationInProgress = false;
+        }, 3000);
+    }
+
+    function showMarioRacGif() {
+        const marioRacContainer = document.getElementById("marioRacContainer");
+        animationInProgress = true;
+        marioRacContainer.style.display = "block";
+        marioRacContainer.style.animation = "none";
+        void marioRacContainer.offsetWidth;
+        marioRacContainer.style.animation = "slideInInv 3s linear";
         setTimeout(function() {
             animationInProgress = false;
         }, 3000);
