@@ -210,6 +210,12 @@ audio {
     transform: translate(140%, 910%);
 }
 
+.fireworks-container {
+    display: none;
+    position: absolute;
+    transform: translate(60%, 42%) scale(0.6);
+}
+
 #volumeRange {
     width: 80px;
 }

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const volumeRange = document.getElementById("volumeRange");
 
     const firstGameImage = document.getElementById("Game01Image");
+    const fireworksTrigger = document.getElementById("Game08Image");
     const LastGameImage = document.getElementById("Game09Image");
 
     let currentIndex = -1;
@@ -61,6 +62,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // fireworks player
+    fireworksTrigger.addEventListener("click", function () {
+        if (!animationInProgress) {
+            showFireworks();
+        }
+    });
+
+    // moving pipes
     LastGameImage.addEventListener("click", function() {
         if (!animationInProgress) {
             popUpMarioPipes();
@@ -124,8 +133,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
+    function showFireworks() {
+        fireworksContainer.style.display = "block";
+        animationInProgress = true;
+
+        setTimeout(function () {
+            animationInProgress = false;
+            fireworksContainer.style.display = "none";
+        }, 2000);
+    }
+
     function popUpMarioPipes() {
-        var marioPipesContainer = document.querySelector('.marioPipes-container');
         var pipes = document.querySelectorAll('.marioPipe');
         animationInProgress = true;
 
