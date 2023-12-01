@@ -194,11 +194,21 @@ audio {
     z-index: -1;
 }
 
-/* .marioPipes-container {
+.marioPipes-container {
+    width: 100px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-} */
+    object-fit: contain;
+    transform: rotate(-90deg);
+}
+
+.marioPipe {
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(140%, 900%);
+}
 
 #volumeRange {
     width: 80px;
@@ -208,41 +218,6 @@ audio {
     width: 90px;
     height: auto;
 }
-
-/* #marioPipe1 {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    transform: rotate(-90deg);
-}
-
-#marioPipe2 {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    transform: rotate(-90deg);
-}
-
-#marioPipe3 {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    transform: rotate(-90deg);
-}
-
-#marioPipe4 {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    transform: rotate(-90deg);
-}
-
-#marioPipe5 {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    transform: rotate(-90deg);
-} */
 
 #bottom-blank-space {
     height: 150px;
