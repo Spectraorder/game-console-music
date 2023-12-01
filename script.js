@@ -5,7 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const volumeRange = document.getElementById("volumeRange");
 
     const marioGifContainer = document.getElementById("marioGifContainer");
+    const marioPipe = document.getElementById("marioPipe");
+
     const firstGameImage = document.getElementById("Game01Image");
+    const LastGameImage = document.getElementById("Game09Image");
+
+    // const marioPipe = document.createElement("img");
+    // marioPipe.src = "imgs/mario_pipe.png";
+    // marioPipe.id = "marioPipe";
+    // document.body.appendChild(marioPipe);
 
     let currentIndex = -1;
     let animationInProgress = false;
@@ -61,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    LastGameImage.addEventListener("click", function() {
+        if (!animationInProgress) {
+            showMarioPipe();
+        }
+    });
+
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
     }
@@ -88,17 +102,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index % 2 === 0) {
             // For even-indexed sections (2, 4, 6, ...)
             translateX = Math.min(slideInAmount * 60, 40);
-            // translateXh4 = Math.max(-(slideInAmount * 60), -40);
         } else {
             // For odd-indexed sections (1, 3, 5, ...)
             translateX = Math.max(-(slideInAmount * 60), -40);
-            // translateXh4 = Math.min(slideInAmount * 60, 40);
         }
 
         img.style.transform = `translateX(${translateX}%)`;
-        // h4.style.transform = `translateX(${translateXh4}%)`;
 
-        const borderWidth = Math.min(slideInAmount * 10, 3); // Adjust the factor for the desired border slide-in distance
+        const borderWidth = Math.min(slideInAmount * 10, 3);
         img.style.border = `${borderWidth}px solid #ddd`;
     }
 
@@ -113,14 +124,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showMarioGif() {
-        // console.log("Clicking now");
         animationInProgress = true;
         marioGifContainer.style.display = "block";
         marioGifContainer.style.animation = "none";
-        void marioGifContainer.offsetWidth; // Trigger reflow
+        void marioGifContainer.offsetWidth;
         marioGifContainer.style.animation = "slideIn 3s linear";
         setTimeout(function() {
             animationInProgress = false;
         }, 3000);
+    }
+
+    function showMarioPipe() {
+        marioPipe.style.right = "20px"
     }
 });
