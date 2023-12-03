@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const firstGameImage = document.getElementById("Game01Image");
     const marioRacRun = document.getElementById("Game02Image");
+    const bulletTrigger = document.getElementById("Game05Image");
     const cursorTrigger = document.getElementById("Game06Image");
     const cappyTrigger = document.getElementById("Game07Image");
     const fireworksTrigger = document.getElementById("Game08Image");
@@ -71,6 +72,12 @@ document.addEventListener("DOMContentLoaded", function() {
     marioRacRun.addEventListener("click", function() {
         if (!animationInProgress) {
             showMarioRacGif();
+        }
+    });
+
+    bulletTrigger.addEventListener("click", function() {
+        if (!animationInProgress) {
+            showBulletBill();
         }
     });
 
@@ -181,10 +188,23 @@ document.addEventListener("DOMContentLoaded", function() {
         marioRacContainer.style.animation = "none";
         void marioRacContainer.offsetWidth;
         marioRacContainer.style.animation = "slideInInv 3s linear";
-        console.log("sliininv");
         setTimeout(function() {
             animationInProgress = false;
             marioRacContainer.style.display = "none";
+        }, 3000);
+    }
+
+    function showBulletBill() {
+        const bulletContainer = document.getElementById("bulletContainer");
+        animationInProgress = true;
+        bulletContainer.style.display = "block";
+        bulletContainer.style.animation = "none";
+        void bulletContainer.offsetWidth;
+        console.log("Bullet");
+        bulletContainer.style.animation = "slideInBull 3s linear";
+        setTimeout(function() {
+            animationInProgress = false;
+            bulletContainer.style.display = "none";
         }, 3000);
     }
 
