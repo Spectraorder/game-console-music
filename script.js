@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const firstGameImage = document.getElementById("Game01Image");
     const marioRacRun = document.getElementById("Game02Image");
+    const cappyTrigger = document.getElementById("Game07Image");
     const fireworksTrigger = document.getElementById("Game08Image");
     const LastGameImage = document.getElementById("Game09Image");
 
@@ -67,6 +68,13 @@ document.addEventListener("DOMContentLoaded", function() {
     marioRacRun.addEventListener("click", function() {
         if (!animationInProgress) {
             showMarioRacGif();
+        }
+    });
+
+    cappyTrigger.addEventListener("click", function () {
+        if (!animationInProgress) {
+            console.log("reached");
+            popUpCappy();
         }
     });
 
@@ -142,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showMarioRacGif() {
-        const marioRacContainer = document.getElementById("marioRacContainer");
+        const marioRacContainer = document.getElementById("cappyContainer");
         animationInProgress = true;
         marioRacContainer.style.display = "block";
         marioRacContainer.style.animation = "none";
@@ -151,6 +159,52 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             animationInProgress = false;
         }, 3000);
+    }
+
+    function popUpCappy() {
+        const cappyContainer = document.getElementById('cappyContainer');
+        animationInProgress = true;
+
+        let randomX = Math.floor(Math.random() * 211);
+
+        let randomY;
+        if (randomX >= 70) {
+            // If X is in range [140, 280], pick random Y from [-60, 80]
+            randomX += 70;
+            randomY = Math.floor(Math.random() * 141) - 60;
+        } else {
+            // If X is smaller than 140, set X to 0 and pick Y from [-60, -40]
+            randomX = 0;
+            randomY = Math.floor(Math.random() * 21) - 60;
+        }
+
+        console.log('Random X:', randomX);
+        console.log('Random Y:', randomY);
+
+        const keyframes = `@keyframes popUpCappy {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50% {
+                transform: translate(${randomX}%, ${randomY}%);
+            }
+            100% {
+                transform: translate(0%, 0%);
+            }
+        }`;
+
+        const style = document.createElement('style');
+        style.innerHTML = keyframes;
+        document.head.appendChild(style);
+
+        cappyContainer.style.animation = "none";
+        void cappyContainer.offsetWidth;
+        cappyContainer.style.animation = `popUpCappy 3s ease-in-out`;
+        setTimeout(function() {
+            document.head.removeChild(style);
+            animationInProgress = false;
+        }, 3000);
+    
     }
 
     function showFireworks() {
