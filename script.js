@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // pop up random cappy
     cappyTrigger.addEventListener("click", function () {
         if (!animationInProgress) {
             console.log("reached");
@@ -146,18 +147,21 @@ document.addEventListener("DOMContentLoaded", function() {
         marioGifContainer.style.animation = "slideIn 3s linear";
         setTimeout(function() {
             animationInProgress = false;
+            marioGifContainer.style.display = "none";
         }, 3000);
     }
 
     function showMarioRacGif() {
-        const marioRacContainer = document.getElementById("cappyContainer");
+        const marioRacContainer = document.getElementById("marioRacContainer");
         animationInProgress = true;
         marioRacContainer.style.display = "block";
         marioRacContainer.style.animation = "none";
         void marioRacContainer.offsetWidth;
         marioRacContainer.style.animation = "slideInInv 3s linear";
+        console.log("sliininv");
         setTimeout(function() {
             animationInProgress = false;
+            marioRacContainer.style.display = "none";
         }, 3000);
     }
 
@@ -196,12 +200,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const style = document.createElement('style');
         style.innerHTML = keyframes;
         document.head.appendChild(style);
-
+        
+        cappyContainer.style.display = "block";
         cappyContainer.style.animation = "none";
         void cappyContainer.offsetWidth;
         cappyContainer.style.animation = `popUpCappy 3s ease-in-out`;
         setTimeout(function() {
             document.head.removeChild(style);
+            cappyContainer.style.display = "none";
             animationInProgress = false;
         }, 3000);
     
