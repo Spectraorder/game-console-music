@@ -1,17 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const bgm = document.getElementById("bgm");
     const gameSections = document.querySelectorAll(".console-section");
+    const consoleSectionImages = document.querySelectorAll(".console-section img");
 
     const volumeRange = document.getElementById("volumeRange");
 
     const firstGameImage = document.getElementById("Game01Image");
     const marioRacRun = document.getElementById("Game02Image");
+    const cursorTrigger = document.getElementById("Game06Image");
     const cappyTrigger = document.getElementById("Game07Image");
     const fireworksTrigger = document.getElementById("Game08Image");
     const LastGameImage = document.getElementById("Game09Image");
 
     let currentIndex = -1;
     let animationInProgress = false;
+    let isMarioCursor = false;
 
     // volumn bar control
     volumeRange.addEventListener("input", function() {
@@ -71,10 +74,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // mario cursor change
+    cursorTrigger.addEventListener("click", function() {
+        if (!isMarioCursor) {
+            console.log("Changed to mario cursor");
+            document.body.style.cursor = `url("imgs/cursor_normal.png"), auto`;
+            updateConsoleSectionCursor(`url("imgs/cursor_click.png"), pointer`);
+            isMarioCursor = true;
+        } else {
+            console.log("Changed to normal");
+            document.body.style.cursor = "auto";
+            updateConsoleSectionCursor("pointer");
+            isMarioCursor = false;
+        }
+    });
+
     // pop up random cappy
     cappyTrigger.addEventListener("click", function () {
         if (!animationInProgress) {
-            console.log("reached");
             popUpCappy();
         }
     });
@@ -95,6 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function formatNumber(number) {
         return number.toString().padStart(2, '0');
+    }
+
+    function updateConsoleSectionCursor(cursorStyle) {
+        consoleSectionImages.forEach(img => {
+            img.style.cursor = cursorStyle;
+        });
     }
 
     function fadeInEffect(section) {
