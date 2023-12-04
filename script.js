@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const firstGameImage = document.getElementById("Game01Image");
     const marioRacRun = document.getElementById("Game02Image");
     const booTrigger = document.getElementById("Game03Image");
+    const lumaTrigger = document.getElementById("Game04Image");
     const bulletTrigger = document.getElementById("Game05Image");
     const cursorTrigger = document.getElementById("Game06Image");
     const cappyTrigger = document.getElementById("Game07Image");
@@ -76,6 +77,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // luma keyframe trigger
+    lumaTrigger.addEventListener("click", function () {
+        if (!animationInProgress) {
+            popUpLuma();
+        }
+    });
+
+    // boo animation in circle
     booTrigger.addEventListener("click", function() {
         const booContainer = document.getElementById("booContainer");
         if(booContainer.style.opacity==0){
@@ -204,6 +213,21 @@ document.addEventListener("DOMContentLoaded", function() {
             animationInProgress = false;
             marioRacContainer.style.display = "none";
         }, 3000);
+    }
+
+    function popUpLuma() {
+        const lumaContainer = document.getElementById('lumaContainer');
+        animationInProgress = true;
+        
+        lumaContainer.style.display = "block";
+        lumaContainer.style.animation = "none";
+        void lumaContainer.offsetWidth;
+        lumaContainer.style.animation = `popUpLuma 5s ease-in-out`;
+        setTimeout(function() {
+            lumaContainer.style.display = "none";
+            animationInProgress = false;
+        }, 5000);
+    
     }
 
     function showBoo() {
