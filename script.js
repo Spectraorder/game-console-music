@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const firstGameImage = document.getElementById("Game01Image");
     const marioRacRun = document.getElementById("Game02Image");
+    const booTrigger = document.getElementById("Game03Image");
     const bulletTrigger = document.getElementById("Game05Image");
     const cursorTrigger = document.getElementById("Game06Image");
     const cappyTrigger = document.getElementById("Game07Image");
@@ -75,6 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    booTrigger.addEventListener("click", function() {
+        const booContainer = document.getElementById("booContainer");
+        if(booContainer.style.opacity==0){
+            if (!animationInProgress) {
+                showBoo();
+            }
+            rotateBoo();
+        }
+    });
+
+    // bullet bill animation
     bulletTrigger.addEventListener("click", function() {
         if (!animationInProgress) {
             showBulletBill();
@@ -192,6 +204,44 @@ document.addEventListener("DOMContentLoaded", function() {
             animationInProgress = false;
             marioRacContainer.style.display = "none";
         }, 3000);
+    }
+
+    function showBoo() {
+        const booContainer = document.getElementById("booContainer");
+        let opacity = 0;
+        animationInProgress = true;
+        const fadeInInterval = setInterval(function () {
+            booContainer.style.opacity = opacity;
+            opacity += 0.1;
+            if (opacity >= 1) {
+                clearInterval(fadeInInterval);
+                animationInProgress = false;
+            }
+        }, 200);
+    }
+
+    function rotateBoo() {
+        const booContainer = document.getElementById("booContainer");
+        const booImage = document.getElementById("marioBooGif");
+    
+        let startTime = Date.now();
+    
+        function update() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+
+            const newX = Math.cos(elapsedTime / 1000) * 200 + window.innerWidth / 2 + 600;
+            const newY = Math.sin(elapsedTime / 1000) * 200 + window.innerHeight / 2 - 200;
+            console.log(newX + ":" + newY);
+
+            booContainer.style.left = `${newX}px`;
+            booContainer.style.top = `${newY}px`;
+    
+            booImage.style.transform = newX > window.innerWidth / 2  + 600 ? "scaleX(-1)" : "scaleX(1)";
+            requestAnimationFrame(update);
+        }
+    
+        update();
     }
 
     function showBulletBill() {
